@@ -32,6 +32,19 @@ const User = db.define('users', {
     sedeId: {
         type: DataTypes.INTEGER,
         allowNull: false
+    },
+    dependenciaId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    cargoId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    state: {
+      type: DataTypes.ENUM('enable', 'disable'),
+      allowNull: false,
+      defaultValue: 'enable'
     }
 })
 
