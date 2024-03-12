@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 //Controller functions
-const UserController = require('./../controller/user.controller')
+const ProductController = require('./../controller/product.controller');
 
 //Middleware functions
 
@@ -11,7 +11,10 @@ const UserController = require('./../controller/user.controller')
 router
     .route('/')
     .post(
-        UserController.CreateUser
+      ProductController.CreateProduct
+    )
+    .get(
+      ProductController.FindAllProducts
     )
 
 module.exports = router;
