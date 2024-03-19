@@ -1,7 +1,7 @@
 const Product = require('./../model/product.model');
 const catchAsync = require('./../utils/catchAsync')
 
-exports.createProduct = catchAsync( async (req, res, next) => {
+exports.createProduct = catchAsync(async (req, res, next) => {
     const { marca, modelId, numSerie, userId, date, description, amount } = req.body;
     
     const product = await Product.create({

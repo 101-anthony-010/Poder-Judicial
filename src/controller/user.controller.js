@@ -2,8 +2,8 @@ const User = require('./../model/user.model');
 const catchAsync = require('./../utils/catchAsync')
 
 exports.createUser = catchAsync( async (req, res, next) => {
-    const { name, lastName, email, password, userName, sedeId, dependeciaId, cargoId } = req.body;
-    
+    const { name, lastName, email, password, userName, sedeId, dependenciaId, cargoId } = req.body;
+
     const user = await User.create({
         name,
         lastName,
@@ -11,7 +11,7 @@ exports.createUser = catchAsync( async (req, res, next) => {
         password,
         userName,
         sedeId,
-        dependeciaId,
+        dependenciaId,
         cargoId
     })
 
@@ -24,7 +24,7 @@ exports.createUser = catchAsync( async (req, res, next) => {
 exports.findAllUser = catchAsync(async (req, res, next) => {
   const users = await User.findAll({
     where: {
-      status: "enable"
+      state: "enable"
     }
   })
 

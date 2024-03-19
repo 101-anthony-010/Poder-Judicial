@@ -4,6 +4,7 @@ const router = express.Router();
 
 //Controller functions
 const productController = require('./../controller/product.controller')
+const modelProductController = require('./../controller/modelProduct.controller')
 
 //Middleware functions
 
@@ -15,6 +16,15 @@ router
     )
     .get(
       productController.findAllProduct
+    )
+
+router
+    .route('/modelProduct')
+    .post(
+      modelProductController.createModelProduct
+    )
+    .get(
+      modelProductController.findAllModelProduct
     )
 
 module.exports = router;

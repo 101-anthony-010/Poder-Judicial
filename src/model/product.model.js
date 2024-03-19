@@ -35,6 +35,11 @@ const Product = db.define('products', {
   amount: {
     type: DataTypes.INTEGER,
     allowNull: false
+  },
+  state: {
+    type: DataTypes.ENUM('enable', 'disable'),
+    allowNull: false,
+    defaultValue: 'enable'
   }
 });
 
