@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 //Controller functions
-const userController = require('./../controller/user.controller')
+const UserController = require('./../controller/user.controller')
 
 //Middleware functions
 
@@ -11,7 +11,11 @@ const userController = require('./../controller/user.controller')
 router
     .route('/')
     .post(
+<<<<<<< HEAD
       userController.createUser
+=======
+        UserController.CreateUser
+>>>>>>> fdfc885af6b87b9963ed8a7041fdfb02d8ccaaea
     )
     .get(userController.findAllUser)
 
