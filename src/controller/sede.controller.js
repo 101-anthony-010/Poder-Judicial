@@ -14,7 +14,7 @@ exports.createSede = catchAsync(async (req, res, next) => {
   })
 })
 
-exports.findAllDependecias = catchAsync(async (req, res, next) => {
+exports.findAllSedes = catchAsync(async (req, res, next) => {
   const sedes = await Sede.findAll()
 
   res.status(200).json({

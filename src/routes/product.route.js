@@ -3,12 +3,9 @@ const express = require('express');
 const router = express.Router();
 
 //Controller functions
-<<<<<<< HEAD
 const productController = require('./../controller/product.controller')
 const modelProductController = require('./../controller/modelProduct.controller')
-=======
-const ProductController = require('./../controller/product.controller');
->>>>>>> fdfc885af6b87b9963ed8a7041fdfb02d8ccaaea
+const marcaController = require('./../controller/marca.controller')
 
 //Middleware functions
 
@@ -16,11 +13,13 @@ const ProductController = require('./../controller/product.controller');
 router
     .route('/')
     .post(
-<<<<<<< HEAD
       productController.createProduct
     )
     .get(
       productController.findAllProduct
+    )
+    .delete(
+      productController.deletedProduct
     )
 
 router
@@ -30,12 +29,15 @@ router
     )
     .get(
       modelProductController.findAllModelProduct
-=======
-      ProductController.CreateProduct
+    )
+
+router
+    .route('/marca')
+    .post(
+      marcaController.createMarca
     )
     .get(
-      ProductController.FindAllProducts
->>>>>>> fdfc885af6b87b9963ed8a7041fdfb02d8ccaaea
+      marcaController.findAllMarcas
     )
 
 module.exports = router;

@@ -8,7 +8,7 @@ const Dependencia = db.define("dependencia", {
     allowNull: false,
     autoIncrement: true
   },
-  dependencia: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false
   }

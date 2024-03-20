@@ -3,7 +3,7 @@ const catchAsync = require("../utils/catchAsync");
 
 exports.createDependencia= catchAsync(async (req, res, next) => {
   const { name } = req.body;
-
+console.log(name)
   const modelProduct = await Dependencia.create({
     name
   })

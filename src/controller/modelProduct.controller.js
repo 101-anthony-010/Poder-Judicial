@@ -2,10 +2,11 @@ const ModelProduct = require("../model/modelProduct.model");
 const catchAsync = require("../utils/catchAsync");
 
 exports.createModelProduct = catchAsync(async (req, res, next) => {
-  const { name } = req.body;
+  const { name, marcaId } = req.body;
 
   const modelProduct = await ModelProduct.create({
-    name
+    name,
+    marcaId
   })
 
   res.status(200).json({

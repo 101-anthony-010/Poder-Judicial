@@ -8,8 +8,8 @@ const Product = db.define('products', {
     allowNull: false,
     autoIncrement: true
   },
-  marca: {
-    type: DataTypes.STRING,
+  marcaId: {
+    type: DataTypes.INTEGER,
     allowNull:false
   },
   modelId: {

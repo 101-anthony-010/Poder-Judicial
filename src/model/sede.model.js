@@ -8,7 +8,7 @@ const Sede = db.define("sede", {
     allowNull: false,
     autoIncrement: true
   },
-  sede: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false
   }

@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const { db } = require("../database/config");
 
-const Cargo = db.define("cargo", {
+const Marca = db.define('marcas', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -14,4 +14,4 @@ const Cargo = db.define("cargo", {
   }
 })
 
-module.exports = Cargo;
+module.exports = Marca;

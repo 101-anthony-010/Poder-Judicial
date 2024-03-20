@@ -5,25 +5,29 @@ const ModelProduct = require("./modelProduct.model")
 const Product = require("./product.model");
 const Sede = require("./sede.model");
 const User = require("./user.model");
+const Marca = require("./../model/marca.model")
 
 const initModel = () => {
-  Product.hasMany(ModelProduct, {foreignKey: "modelId"});
-  ModelProduct.belongsTo(Product, {foreignKey: "modelId"});
+  ModelProduct.hasMany(Product, {foreignKey: "modelId"});
+  Product.belongsTo(ModelProduct, {foreignKey: "modelId"});
 
-  User.hasMany(Sede, {foreignKey: "sedeId"});
-  Sede.belongsTo(User, {foreignKey: "sedeId"});
+  ModelProduct.hasMany(Marca, {foreignKey: "marcaId"});
+  Marca.belongsTo(ModelMarca, {foreignKey: "marcaId"});
 
-  User.hasMany(Dependencia, {foreignKey: "dependenciaId"});
-  Dependencia.belongsTo(User, {foreignKey: "dependenciaId"});
+  Sede.hasMany(User, {foreignKey: "sedeId"});
+  User.belongsTo(Sede, {foreignKey: "sedeId"});
 
-  User.hasMany(Cargo, {foreignKey: "cargoId"});
-  Cargo.belongsTo(User, {foreignKey: "cargoId"});
+  Dependencia.hasMany(User, {foreignKey: "dependenciaId"});
+  User.belongsTo(Dependencia, {foreignKey: "dependenciaId"});
 
-  Asignation.hasMany(User, {foreignKey: "userId"});
-  User.belongsTo(Asignation, {foreignKey: "userId"});
+  Cargo.hasMany(User, {foreignKey: "cargoId"});
+  User.belongsTo(Cargo, {foreignKey: "cargoId"});
 
-  Asignation.hasMany(Product, {foreignKey: "productId"});
-  Product.belongsTo(Asignation, {foreignKey: "productId"});
+  // Asignation.hasMany(User, {foreignKey: "userId"});
+  // User.belongsTo(Asignation, {foreignKey: "userId"});
+
+  // Asignation.hasMany(Product, {foreignKey: "productId"});
+  // Product.belongsTo(Asignation, {foreignKey: "productId"});
 }
 
 module.exports = initModel;

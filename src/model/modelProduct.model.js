@@ -11,6 +11,10 @@ const ModelProduct = db.define('modelProducts', {
   name: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  marcaId: {
+    type: DataTypes.INTEGER,
+    allowNull: false
   }
 })
 
