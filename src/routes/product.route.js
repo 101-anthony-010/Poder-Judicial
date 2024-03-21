@@ -18,6 +18,9 @@ router
     .get(
       productController.findAllProduct
     )
+    
+router
+    .route('/:id')
     .delete(
       productController.deletedProduct
     )
