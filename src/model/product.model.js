@@ -17,7 +17,7 @@ const Product = db.define('products', {
     allowNull: false
   },
   numSerie: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: false
   },
   userId:{

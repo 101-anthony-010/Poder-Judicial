@@ -32,13 +32,7 @@ exports.findAllProduct = catchAsync(async (req, res, next) => {
 exports.deletedProduct = catchAsync(async (req, res, next) => {
   const { id } = req.params;
 
-  const product = await Product.findOne({
-    where: { 
-      id
-    }
-  });
-
-  await Product.destroy({
+  const product = await Product.destroy({
     where: { 
       id 
     }

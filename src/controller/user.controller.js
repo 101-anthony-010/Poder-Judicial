@@ -33,3 +33,18 @@ exports.findAllUser = catchAsync(async (req, res, next) => {
     users
   })
 })
+
+exports.deletedUser = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+
+  const user = await User.destroy({
+    where: {
+      id
+    }
+  })
+
+  res.status(200).json({
+    status: "Success",
+    user
+  })
+})

@@ -21,6 +21,10 @@ router
     )
 
 router
+      .route('/:id')
+      .delete(userController.deletedUser)
+
+router
     .route('/sede')
     .post(
       sedeController.createSede
