@@ -23,11 +23,11 @@ const initModel = () => {
   Cargo.hasMany(User, {foreignKey: "cargoId"});
   User.belongsTo(Cargo, {foreignKey: "cargoId"});
 
-  // Asignation.hasMany(User, {foreignKey: "userId"});
-  // User.belongsTo(Asignation, {foreignKey: "userId"});
+  Asignation.hasMany(User, {foreignKey: "userId"});
+  User.belongsTo(Asignation, {foreignKey: "userId"});
 
-  // Asignation.hasMany(Product, {foreignKey: "productId"});
-  // Product.belongsTo(Asignation, {foreignKey: "productId"});
+  Asignation.hasMany(Product, {foreignKey: "productId"});
+  Product.belongsTo(Asignation, {foreignKey: "productId"});
 }
 
 module.exports = initModel;

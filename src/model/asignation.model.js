@@ -16,7 +16,7 @@ const Asignation = db.define("asignation", {
     type: DataTypes.INTEGER,
     allowNull: false
   },
-  fecha: {
+  date: {
     type: DataTypes.DATE,
     allowNull: false
   }

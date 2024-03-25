@@ -2,14 +2,14 @@ const Product = require('./../model/product.model');
 const catchAsync = require('./../utils/catchAsync')
 
 exports.createProduct = catchAsync(async (req, res, next) => {
-    const { marcaId, modelId, numSerie, userId, date, description, amount } = req.body;
+    const { marcaId, modelId, numSerie, userId, dateInitial, description, amount } = req.body;
 
     const product = await Product.create({
         marcaId,
         modelId,
         numSerie,
         userId,
-        date,
+        dateInitial,
         description,
         amount
     })
@@ -26,6 +26,17 @@ exports.findAllProduct = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "Success",
     products
+  })
+})
+
+exports.findOneProduct = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+  
+  const product = await Product.findOne({id})
+
+  res.status(200).json({
+    status: "Success",
+    product
   })
 })
 
@@ -46,13 +57,13 @@ exports.deletedProduct = catchAsync(async (req, res, next) => {
 
 exports.updateProduct = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  const { amount, date, description, marcaId, modelId, numSerie, userId } = req.body
+  const { amount, dateInitial, description, marcaId, modelId, numSerie, userId } = req.body
 
   const product = await Product.findOne({id})
 
   const newProduct = await product.update({
     amount,
-    date,
+    dateInitial,
     description,
     marcaId,
     modelId,
@@ -65,3 +76,21 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
     newProduct 
   });
 });
+
+exports.disableProduct = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+  const { dateFinal, amountPages } = req.body
+
+  const product = await Product.findOne({id})
+
+  const newProduct = await product.update({
+    dateFinal,
+    amountPages,
+    state: 'disable'
+  }) 
+
+  res.status(200).json({
+    status: "Success",
+    newProduct 
+  });
+})

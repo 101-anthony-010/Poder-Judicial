@@ -24,17 +24,25 @@ const Product = db.define('products', {
     type: DataTypes.INTEGER,
     allowNull: false
   },
-  date: {
+  dateInitial: {
     type: DataTypes.DATE,
     allowNull: false
   },
+  dateFinal: {
+    type: DataTypes.DATE,
+    allowNull: true
+  },
   description: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false
   },
   amount: {
     type: DataTypes.INTEGER,
     allowNull: false
+  },
+  amountPages: {
+    type: DataTypes.INTEGER,
+    allowNull: true
   },
   state: {
     type: DataTypes.ENUM('enable', 'disable'),

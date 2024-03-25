@@ -22,3 +22,41 @@ exports.findAllSedes = catchAsync(async (req, res, next) => {
     sedes
   })
 })
+
+exports.findOneSedes = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+
+  const sede = await Sede.findOne({id})
+
+  res.status(200).json({
+    status: "Success",
+    sede
+  })
+})
+
+exports.deleteSede = catchAsync(async (req, res, next) => {
+  const { id } = req.params
+
+  const sede = await Sede.destroy({id})
+
+  res.status(200).json({
+    status: "Success",
+    sede
+  })
+})
+
+exports.updateSede = catchAsync(async (req, res, next) => {
+  const { id } = req.params
+  const { name } = req.body;
+
+  const sede = await Sede.findOne({id})
+
+  const newSede = await sede.update({
+    name
+  })
+
+  res.status(200).json({
+    status: "Success",
+    newSede
+  })
+})

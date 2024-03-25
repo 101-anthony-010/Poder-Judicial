@@ -25,6 +25,10 @@ const User = db.define('users', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    phone: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     userName: {
         type: DataTypes.STRING,
         allowNull: false

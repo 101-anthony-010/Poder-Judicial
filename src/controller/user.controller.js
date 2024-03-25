@@ -34,6 +34,17 @@ exports.findAllUser = catchAsync(async (req, res, next) => {
   })
 })
 
+exports.findOneUser = catchAsync(async (req, res, next) => {
+  const { id } = req.params
+  
+  const user = await User.findOne({id})
+
+  res.status(200).json({
+    status: "Success",
+    user
+  })
+})
+
 exports.deletedUser = catchAsync(async (req, res, next) => {
   const { id } = req.params;
 

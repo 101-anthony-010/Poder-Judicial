@@ -22,3 +22,41 @@ exports.findAllMarcas = catchAsync(async (req, res, next) => {
     marcas
   })
 })
+
+exports.findOneMarca = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+
+  const marca = await Marca.findOne({id})
+
+  res.status(200).json({
+    status: "Success",
+    marca
+  })
+})
+
+exports.deleteMarca = catchAsync(async (req, res, next) => {
+  const { id } = req.params
+
+  const marca = await Marca.destroy({id})
+
+  res.status(200).json({
+    status: "Success",
+    marca
+  })
+})
+
+exports.updateMarca = catchAsync(async (req, res, next) => {
+  const { id } = req.params
+  const { name } = req.body;
+
+  const marca = await Marca.findOne({id})
+
+  const newMarca = await marca.update({
+    name
+  })
+
+  res.status(200).json({
+    status: "Success",
+    newMarca
+  })
+})

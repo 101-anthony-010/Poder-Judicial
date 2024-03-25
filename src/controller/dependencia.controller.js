@@ -14,11 +14,49 @@ console.log(name)
   })
 })
 
-exports.findAllDependecias = catchAsync(async (req, res, next) => {
+exports.findAllDependencias = catchAsync(async (req, res, next) => {
   const dependencias = await Dependencia.findAll()
 
   res.status(200).json({
     status: "Success",
     dependencias
+  })
+})
+
+exports.findOneDependencia = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+
+  const dependencia = await Dependencia.findOne({id})
+
+  res.status(200).json({
+    status: "Success",
+    dependencia
+  })
+})
+
+exports.deleteDependencia = catchAsync(async (req, res, next) => {
+  const { id } = req.params
+
+  const dependencia = await Dependencia.destroy({id})
+
+  res.status(200).json({
+    status: "Success",
+    dependencia
+  })
+})
+
+exports.updateDependencia = catchAsync(async (req, res, next) => {
+  const { id } = req.params
+  const { name } = req.body;
+
+  const dependencia = await Dependencia.findOne({id})
+
+  const newDependencia = await dependencia.update({
+    name
+  })
+
+  res.status(200).json({
+    status: "Success",
+    newDependencia
   })
 })

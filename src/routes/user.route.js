@@ -18,6 +18,7 @@ router
 
 router
       .route('/:id')
+      .get(userController.findOneUser)
       .delete(userController.deletedUser)
       .patch(userController.updateUser)
 
@@ -27,14 +28,31 @@ router
     .get(sedeController.findAllSedes)
 
 router
+    .route('/sede:id')
+    .get(sedeController.findOneSedes)
+    .patch(sedeController.updateSede)
+    .delete(sedeController.deleteSede)
+
+router
     .route('/dependencia')
     .post(dependenciaController.createDependencia)
-    .get(dependenciaController.findAllDependecias)
+    .get(dependenciaController.findAllDependencias)
+
+router
+    .route('/dependencia:id')
+    .get(dependenciaController.findOneDependencia)
+    .patch(dependenciaController.updateDependencia)
+    .delete(dependenciaController.deleteDependencia)
 
 router
     .route('/cargo')
     .post(cargoController.createCargo)
     .get(cargoController.findAllCargo)
     
+router
+    .route('/cargo/:id')
+    .get(cargoController.findOneCargo)
+    .patch(cargoController.updateCargo)
+    .delete(cargoController.deleteCargo)
 
 module.exports = router;
