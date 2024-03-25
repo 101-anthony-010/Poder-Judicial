@@ -12,7 +12,7 @@ const initModel = () => {
   Product.belongsTo(ModelProduct, {foreignKey: "modelId"});
 
   ModelProduct.hasMany(Marca, {foreignKey: "marcaId"});
-  Marca.belongsTo(ModelMarca, {foreignKey: "marcaId"});
+  Marca.belongsTo(ModelProduct, {foreignKey: "marcaId"});
 
   Sede.hasMany(User, {foreignKey: "sedeId"});
   User.belongsTo(Sede, {foreignKey: "sedeId"});
