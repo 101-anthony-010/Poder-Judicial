@@ -48,3 +48,26 @@ exports.deletedUser = catchAsync(async (req, res, next) => {
     user
   })
 })
+
+exports.updateUser = catchAsync(async (req, res, next) => {
+  const { id } = req.params
+  const { name, lastName, email, password, userName, sedeId, dependenciaId, cargoId } = req.body
+
+  const user = await User.findOne({id})
+
+  const newUser = await user.update({
+    name,
+    lastName,
+    email,
+    password,
+    userName,
+    sedeId,
+    dependenciaId,
+    cargoId
+  })
+
+  res.status(200).json({
+    status: "Success",
+    newUser
+  })
+});

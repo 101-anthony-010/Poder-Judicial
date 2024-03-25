@@ -13,43 +13,28 @@ const cargoController = require('./../controller/cargo.controller')
 //Rutas
 router
     .route('/')
-    .post(
-      userController.createUser
-    )
-    .get(
-      userController.findAllUser
-    )
+    .post(userController.createUser)
+    .get(userController.findAllUser)
 
 router
       .route('/:id')
       .delete(userController.deletedUser)
+      .patch(userController.updateUser)
 
 router
     .route('/sede')
-    .post(
-      sedeController.createSede
-    )
-    .get(
-      sedeController.findAllSedes
-    )
+    .post(sedeController.createSede)
+    .get(sedeController.findAllSedes)
 
 router
     .route('/dependencia')
-    .post(
-      dependenciaController.createDependencia
-    )
-    .get(
-      dependenciaController.findAllDependecias
-    )
+    .post(dependenciaController.createDependencia)
+    .get(dependenciaController.findAllDependecias)
 
 router
     .route('/cargo')
-    .post(
-      cargoController.createCargo
-    )
-    .get(
-      cargoController.findAllCargo
-    )
+    .post(cargoController.createCargo)
+    .get(cargoController.findAllCargo)
     
 
 module.exports = router;

@@ -43,3 +43,25 @@ exports.deletedProduct = catchAsync(async (req, res, next) => {
     product 
   });
 });
+
+exports.updateProduct = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+  const { amount, date, description, marcaId, modelId, numSerie, userId } = req.body
+
+  const product = await Product.findOne({id})
+
+  const newProduct = await product.update({
+    amount,
+    date,
+    description,
+    marcaId,
+    modelId,
+    numSerie,
+    userId
+  }) 
+
+  res.status(200).json({
+    status: "Success",
+    newProduct 
+  });
+});

@@ -12,35 +12,22 @@ const marcaController = require('./../controller/marca.controller')
 //Rutas
 router
     .route('/')
-    .post(
-      productController.createProduct
-    )
-    .get(
-      productController.findAllProduct
-    )
+    .post(productController.createProduct)
+    .get(productController.findAllProduct)
     
 router
     .route('/:id')
-    .delete(
-      productController.deletedProduct
-    )
+    .delete(productController.deletedProduct)
+    .patch(productController.updateProduct)
 
 router
     .route('/modelProduct')
-    .post(
-      modelProductController.createModelProduct
-    )
-    .get(
-      modelProductController.findAllModelProduct
-    )
+    .post(modelProductController.createModelProduct)
+    .get(modelProductController.findAllModelProduct)
 
 router
     .route('/marca')
-    .post(
-      marcaController.createMarca
-    )
-    .get(
-      marcaController.findAllMarcas
-    )
+    .post(marcaController.createMarca)
+    .get(marcaController.findAllMarcas)
 
 module.exports = router;
