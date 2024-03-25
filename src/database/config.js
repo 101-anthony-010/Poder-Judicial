@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize');
 
 let db;
 
-if (process.env.NODE_ENV === 'develoment') {
+if (process.env.NODE_ENV === 'development') {
     db = new Sequelize({
         dialect: process.env.DB_DIALECT,
         host: process.env.DB_HOST,
