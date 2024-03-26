@@ -4,31 +4,24 @@ const catchAsync = require('./../utils/catchAsync')
 exports.createUser = catchAsync(async (req, res, next) => {
   const { name, lastName, email, password, userName, sedeId, dependenciaId, cargoId, phone } = req.body;
 
-  try {
-    const user = await User.create({
-      name,
-      lastName,
-      email,
-      password,
-      userName,
-      sedeId,
-      dependenciaId,
-      cargoId,
-      phone
-    });
+  const user = await User.create({
+    name,
+    lastName,
+    email,
+    password,
+    userName,
+    sedeId,
+    dependenciaId,
+    cargoId,
+    phone
+  });
 
-    res.status(201).json({
-      status: 'Success',
-      data: {
-        user
-      }
-    });
-  } catch (error) {
-    res.status(500).json({
-      status: 'Error',
-      message: error.message
-    });
-  }
+  res.status(201).json({
+    status: 'Success',
+    data: {
+      user
+    }
+  })
 });
 
 exports.findAllUser = catchAsync(async (req, res, next) => {
