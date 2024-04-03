@@ -2,7 +2,7 @@ const User = require('./../model/user.model');
 const catchAsync = require('./../utils/catchAsync')
 
 exports.createUser = catchAsync(async (req, res, next) => {
-  const { name, lastName, email, password, userName, sedeId, dependenciaId, cargoId, phone } = req.body;
+  const { name, lastName, email, password, userName, sedeId, dependenciaId, cargoId, phone, dni } = req.body;
 
   const user = await User.create({
     name,
@@ -13,7 +13,8 @@ exports.createUser = catchAsync(async (req, res, next) => {
     sedeId,
     dependenciaId,
     cargoId,
-    phone
+    phone,
+    dni
   });
 
   res.status(201).json({

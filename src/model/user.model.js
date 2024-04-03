@@ -16,6 +16,10 @@ const User = db.define('users', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    dni: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -44,6 +48,11 @@ const User = db.define('users', {
     cargoId: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    rol: {
+      type: DataTypes.ENUM('admin', 'employee'),
+      allowNull: false,
+      defaultValue: 'employee'
     },
     state: {
       type: DataTypes.ENUM('enable', 'disable'),
