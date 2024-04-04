@@ -79,18 +79,17 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
 
 exports.disableProduct = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  const { dateFinal, amountPages } = req.body
+  const { dateFinal } = req.body
 
   const product = await Product.findOne({id})
 
   const newProduct = await product.update({
     dateFinal,
-    amountPages,
     state: 'disable'
   }) 
 
   res.status(200).json({
-    status: "Success",
+    status: "Desabled con exito",
     newProduct 
   });
 })
