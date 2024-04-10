@@ -27,7 +27,11 @@ exports.findAllModelProduct = catchAsync(async (req, res, next) => {
 exports.findOneModelProduct = catchAsync(async (req, res, next) => {
   const { id } = req.params;
 
-  const modelProduct = await ModelProduct.findOne({id})
+  const modelProduct = await ModelProduct.findOne({
+    where: {
+      id
+    }
+  })
 
   res.status(200).json({
     status: "Success",

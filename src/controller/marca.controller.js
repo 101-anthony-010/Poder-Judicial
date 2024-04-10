@@ -26,7 +26,11 @@ exports.findAllMarcas = catchAsync(async (req, res, next) => {
 exports.findOneMarca = catchAsync(async (req, res, next) => {
   const { id } = req.params;
 
-  const marca = await Marca.findOne({id})
+  const marca = await Marca.findOne({
+    where: {
+      id
+    }
+  })
 
   res.status(200).json({
     status: "Success",

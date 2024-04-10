@@ -27,7 +27,11 @@ exports.findAllAsignation = catchAsync(async (req, res, next) => {
 
 exports.findOneAsignation = catchAsync(async (req, res, next) => {
   const { id } = req.params
-  const asignation = await Asignation.findOne({id})
+  const asignation = await Asignation.findOne({
+    where: {
+      id
+    }
+  })
 
   res.status(200).json({
     status: "Succes",

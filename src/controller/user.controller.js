@@ -41,7 +41,11 @@ exports.findAllUser = catchAsync(async (req, res, next) => {
 exports.findOneUser = catchAsync(async (req, res, next) => {
   const { id } = req.params
   
-  const user = await User.findOne({id})
+  const user = await User.findOne({
+    where: {
+      id
+    }
+  })
 
   res.status(200).json({
     status: "Success",

@@ -1,3 +1,4 @@
+const { where } = require('sequelize');
 const Product = require('./../model/product.model');
 const catchAsync = require('./../utils/catchAsync')
 
@@ -32,7 +33,11 @@ exports.findAllProduct = catchAsync(async (req, res, next) => {
 exports.findOneProduct = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   
-  const product = await Product.findOne({id})
+  const product = await Product.findOne({
+    where: {
+      id
+    }
+  })
 
   res.status(200).json({
     status: "Success",
@@ -59,7 +64,11 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   const { amount, dateInitial, description, marcaId, modelId, numSerie, userId } = req.body
 
-  const product = await Product.findOne({id})
+  const product = await Product.findOne({
+    where: {
+      id
+    }
+  })
 
   const newProduct = await product.update({
     amount,
@@ -81,7 +90,11 @@ exports.disableProduct = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   const { dateFinal } = req.body
 
-  const product = await Product.findOne({id})
+  const product = await Product.findOne({
+    where: {
+      id
+    }
+  })
 
   const newProduct = await product.update({
     dateFinal,

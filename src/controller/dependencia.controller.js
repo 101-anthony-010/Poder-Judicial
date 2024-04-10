@@ -26,7 +26,11 @@ exports.findAllDependencias = catchAsync(async (req, res, next) => {
 exports.findOneDependencia = catchAsync(async (req, res, next) => {
   const { id } = req.params;
 
-  const dependencia = await Dependencia.findOne({id})
+  const dependencia = await Dependencia.findOne({
+    where: {
+      id
+    }
+  })
 
   res.status(200).json({
     status: "Success",

@@ -26,7 +26,11 @@ exports.findAllSedes = catchAsync(async (req, res, next) => {
 exports.findOneSedes = catchAsync(async (req, res, next) => {
   const { id } = req.params;
 
-  const sede = await Sede.findOne({id})
+  const sede = await Sede.findOne({
+    where: {
+      id
+    }
+  })
 
   res.status(200).json({
     status: "Success",

@@ -27,7 +27,11 @@ exports.findAllCargo = catchAsync(async (req, res, next) => {
 exports.findOneCargo = catchAsync(async (req, res, next) => {
   const { id } = req.params;
 
-  const cargo = await Cargo.findOne({id})
+  const cargo = await Cargo.findOne({
+    where: {
+      id
+    }
+  })
 
   res.status(200).json({
     status: "Success",
