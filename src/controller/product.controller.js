@@ -106,3 +106,24 @@ exports.disableProduct = catchAsync(async (req, res, next) => {
     newProduct 
   });
 })
+
+exports.amountPagesProduct = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+  const { amountPages } = req.body
+
+  const product = await Product.findOne({
+    where: {
+      id
+    }
+  })
+
+  const newProduct = await product.update({
+    amountPages,
+    state: 'disable'
+  }) 
+
+  res.status(200).json({
+    status: "Cantidad de paginas con exito",
+    newProduct 
+  });
+})

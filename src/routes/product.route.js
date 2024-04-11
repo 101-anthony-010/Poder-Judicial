@@ -22,5 +22,5 @@ router
 router
     .route('/used/:id')
     .patch(productController.disableProduct)
-
+    
 module.exports = router;

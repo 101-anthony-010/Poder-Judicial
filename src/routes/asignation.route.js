@@ -4,6 +4,7 @@ const router = express.Router();
 
 //Controller functions
 const asignationController = require('./../controller/asignation.controller'); 
+const productController = require('./../controller/product.controller');
 
 //Middleware functions
 
@@ -19,4 +20,9 @@ router
     .patch(asignationController.updateAsignation)
     .delete(asignationController.deleteAsignation)
 
-    module.exports = router;
+
+router
+    .route('/amountPages/:id')
+    .patch(productController.amountPagesProduct)
+
+module.exports = router;
