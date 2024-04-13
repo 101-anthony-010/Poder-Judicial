@@ -12,6 +12,7 @@ const AppError = require('./utils/appError');
 //Controller functions
 
 //Routes funtions
+const authRoutes = require('./routes/auth.route')
 const userRoutes = require('./routes/user.route')
 const productRoutes = require('./routes/product.route');
 const asignationRoutes = require('./routes/asignation.route')
@@ -48,6 +49,7 @@ if (process.env.NODE_ENV === 'develoment') {
 app.use('/api/v1', limiter);
 
 //Routes
+app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/user', userRoutes);
 app.use('/api/v1/product', productRoutes);
 app.use('/api/v1/asignation', asignationRoutes);
