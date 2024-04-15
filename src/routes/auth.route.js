@@ -9,7 +9,7 @@ const authController = require('./../controller/auth.controller')
 
 //Rutas
 router
-    .route('/')
+    .route('/login')
     .post(authController.login)
 
 module.exports = router;

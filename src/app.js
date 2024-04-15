@@ -30,7 +30,15 @@ const limiter = rateLimit({
 });
 
 app.use(express.json());
-app.use(cors());
+// Configuración específica de CORS
+const corsOptions = {
+  origin: 'http://localhost:3000', // Cambia esto al origen correcto de tu cliente
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+// app.use(cors());
+app.use(cors({ origin: '*' }));
 app.use(helmet());
 app.use(hpp());
 app.use(
@@ -41,7 +49,7 @@ app.use(
     })
 );
 
-if (process.env.NODE_ENV === 'develoment') {
+if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 

@@ -46,7 +46,7 @@ const AppError = require('../utils/appError');
 
 exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
-
+console.log(email)
   const user = await User.findOne({
     where: {
       email,
