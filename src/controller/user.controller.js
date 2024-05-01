@@ -1,23 +1,28 @@
 const User = require('./../model/user.model');
 const catchAsync = require('./../utils/catchAsync')
+const bcrypt = require('bcryptjs');
 
 exports.createUser = catchAsync(async (req, res, next) => {
-  const { name, lastName, email, password, userName, sedeId, dependenciaId, cargoId, phone, dni } = req.body;
+  const { name, lastName, email, password, userName, sedeId, dependenciaId, cargoId, phone, dni, infoId } = req.body;
+
+  const salt = await bcrypt.genSalt(16);
+  const encryptedPassword = await bcrypt.hash(password, salt);
 
   const user = await User.create({
-    name,
-    lastName,
+    name: name.toLowerCase(),
+    lastName: lastName.toLowerCase(),
     email,
-    password,
+    password: encryptedPassword,
     userName,
     sedeId,
     dependenciaId,
     cargoId,
     phone,
-    dni
+    dni,
+    // infoId
   });
 
-  res.status(201).json({
+  res.status(200).json({
     status: 'Success',
     data: {
       user

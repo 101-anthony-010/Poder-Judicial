@@ -58,7 +58,11 @@ const User = db.define('users', {
       type: DataTypes.ENUM('enable', 'disable'),
       allowNull: false,
       defaultValue: 'enable'
-    }
+    },
+    // infoId: {
+    //   type: DataTypes.NUMBER,
+    //   allowNull: true
+    // }
 })
 
 module.exports = User;

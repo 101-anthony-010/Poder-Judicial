@@ -19,11 +19,12 @@ db.sync()
     .then(() => console.log('Database synced'))
     .catch((err) => console.log(err));
 
-const httpsOptions = {
-    key: fs.readFileSync('./key.pem'),
-    cert: fs.readFileSync('./cert.pem')
-};
+// const httpsOptions = {
+//     key: fs.readFileSync('./key.pem'),
+//     cert: fs.readFileSync('./cert.pem')
+// };
 
-const server = https.createServer(httpsOptions, app);
+// const server = https.createServer(httpsOptions, app);
 
-server.listen(port, () => console.log(`Running on port:${port}`));
+// server.listen(port, () => console.log(`Running on port:${port}`));
+app.listen(port, () => console.log(`Running on port:${port}`))

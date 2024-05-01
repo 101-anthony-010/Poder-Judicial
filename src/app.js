@@ -51,7 +51,7 @@ app.use(cors());
 
 
 //Directorio publico
-app.use(express.static('public'))
+// app.use(express.static('public'))
 
 // Rutas de peticiones limitadas
 app.use('/api/v1', limiter);
@@ -68,9 +68,9 @@ app.use('/api/v1/sede', sedeRoutes);
 app.use('/api/v1/cargo', cargoRoutes);
 
 // Ruta genérica para manejar todas las demás solicitudes y servir el HTML principal del frontend
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../public', 'index.html'));
+// });
 
 app.all('*', (req, res, next) => 
     next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404))
