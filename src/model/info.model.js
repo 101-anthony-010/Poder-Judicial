@@ -8,6 +8,10 @@ const Info = db.define('users', {
         allowNull: false,
         autoIncrement: true
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     ip: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -20,7 +24,7 @@ const Info = db.define('users', {
       type: DataTypes.STRING,
       allowNull: false
     },
-    codeInentory: {
+    codeInventory: {
       type: DataTypes.STRING,
       allowNull: true
     },
