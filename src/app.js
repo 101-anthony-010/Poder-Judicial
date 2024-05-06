@@ -20,6 +20,7 @@ const modelProductRoutes = require('./routes/modelProduct.route');
 const dependenciaRoutes = require('./routes/dependencia.route');
 const cargoRoutes = require('./routes/cargo.route');
 const sedeRoutes = require('./routes/sede.route');
+const infoRoutes = require('./routes/info.route');
 
 const app = express();
 const limiter = rateLimit({
@@ -66,6 +67,7 @@ app.use('/api/v1/modelProduct', modelProductRoutes);
 app.use('/api/v1/dependencia', dependenciaRoutes);
 app.use('/api/v1/sede', sedeRoutes);
 app.use('/api/v1/cargo', cargoRoutes);
+app.use('/api/v1/info', infoRoutes);
 
 // Ruta genérica para manejar todas las demás solicitudes y servir el HTML principal del frontend
 // app.get('*', (req, res) => {

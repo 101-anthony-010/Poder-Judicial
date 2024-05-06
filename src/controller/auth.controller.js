@@ -38,7 +38,7 @@ exports.login = catchAsync(async (req, res, next) => {
       cargoId: user.cargoId,
       phone: user.phone,
       rol: user.rol,
-      // info: user.infoId
+      info: user.infoId
     },
   });
 });

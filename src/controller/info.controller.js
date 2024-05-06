@@ -34,6 +34,15 @@ exports.createInfo = catchAsync(async (req, res, next) => {
   })
 });
 
+exports.findAllInfo = catchAsync(async (req, res, next) => {
+  const infos = await Info.findAll()
+
+  res.status(200).json({
+    status: "Success",
+    infos
+  })
+});
+
 exports.findOneInfo = catchAsync(async (req, res, next) => {
   const { id } = req.params;
 
