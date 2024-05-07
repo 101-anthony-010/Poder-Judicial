@@ -7,7 +7,7 @@ exports.createUser = catchAsync(async (req, res, next) => {
 
   const salt = await bcrypt.genSalt(16);
   const encryptedPassword = await bcrypt.hash(password, salt);
-
+  // console.log(name, lastName, email, password, userName, sedeId, dependenciaId, cargoId, phone, dni, infoId)
   const user = await User.create({
     name: name.toLowerCase(),
     lastName: lastName.toLowerCase(),
@@ -19,7 +19,7 @@ exports.createUser = catchAsync(async (req, res, next) => {
     cargoId,
     phone,
     dni,
-    // infoId
+    infoId
   });
 
   res.status(200).json({
