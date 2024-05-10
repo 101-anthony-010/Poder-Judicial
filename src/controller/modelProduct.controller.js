@@ -42,7 +42,11 @@ exports.findOneModelProduct = catchAsync(async (req, res, next) => {
 exports.deleteModelProduct = catchAsync(async (req, res, next) => {
   const { id } = req.params
 
-  const modelProduct = await ModelProduct.destroy({id})
+  const modelProduct = await ModelProduct.destroy({
+    where: {
+      id
+    }
+  })
 
   res.status(200).json({
     status: "Success",
@@ -51,10 +55,14 @@ exports.deleteModelProduct = catchAsync(async (req, res, next) => {
 })
 
 exports.updateModelProduct = catchAsync(async (req, res, next) => {
-  const { id } = req.params
-  const { name, marcaId } = req.body;
+  // const { id } = req.params
+  const { id, name, marcaId } = req.body;
 
-  const modelProduct = await ModelProduct.findOne({id})
+  const modelProduct = await ModelProduct.findOne({
+    where: {
+      id
+    }
+  })
 
   const newModelProduct = await modelProduct.update({
     name,

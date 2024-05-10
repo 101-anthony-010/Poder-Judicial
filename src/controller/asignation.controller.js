@@ -43,7 +43,11 @@ exports.updateAsignation = catchAsync(async (req, res, next) => {
   const { id } = req.params
   const { userId, productId, date } = req.body
 
-  const asignation = await Asignation.findOne({id})
+  const asignation = await Asignation.findOne({
+    where: {
+      id
+    }
+  })
 
   const newAsignation = await asignation.update({
     userId,
@@ -60,7 +64,11 @@ exports.updateAsignation = catchAsync(async (req, res, next) => {
 exports.deleteAsignation = catchAsync(async (req, res, next) => {
   const { id } = req.params
 
-  const asignation = await Asignation.destroy({id})
+  const asignation = await Asignation.destroy({
+    where: {
+      id
+    }
+  })
 
   res.status(200).json({
     status: "Succes",

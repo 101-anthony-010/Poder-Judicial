@@ -9,10 +9,10 @@ router
     .route('/')
     .post(infoController.createInfo)
     .get(infoController.findAllInfo)
+    .patch(infoController.updateInfo)
     
 router
     .route('/:id')
     .get(infoController.findOneInfo)
-    .patch(infoController.updateInfo)
 
 module.exports = router;

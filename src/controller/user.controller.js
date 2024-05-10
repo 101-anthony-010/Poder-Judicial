@@ -77,13 +77,17 @@ exports.updateUser = catchAsync(async (req, res, next) => {
   const { id } = req.params
   const { name, lastName, email, password, userName, sedeId, dependenciaId, cargoId, phone } = req.body
 
-  const user = await User.findOne({id})
+  const user = await User.findOne({
+    where: {
+      id
+    }
+  })
 
   const newUser = await user.update({
     name,
     lastName,
-    email,
-    password,
+    // email,
+    // password,
     userName,
     sedeId,
     dependenciaId,

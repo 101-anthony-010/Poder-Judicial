@@ -61,8 +61,8 @@ exports.deletedProduct = catchAsync(async (req, res, next) => {
 });
 
 exports.updateProduct = catchAsync(async (req, res, next) => {
-  const { id } = req.params;
-  const { amount, dateInitial, description, marcaId, modelId, numSerie, userId } = req.body
+  // const { id } = req.params;
+  const { id, amount, dateInitial, description, marcaId, modelId, numSerie, userId } = req.body
 
   const product = await Product.findOne({
     where: {
@@ -72,7 +72,7 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
 
   const newProduct = await product.update({
     amount,
-    dateInitial,
+    // dateInitial,
     description,
     marcaId,
     modelId,

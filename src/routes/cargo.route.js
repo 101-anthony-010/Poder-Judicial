@@ -9,11 +9,11 @@ router
     .route('/')
     .post(cargoController.createCargo)
     .get(cargoController.findAllCargo)
+    .patch(cargoController.updateCargo)
     
 router
     .route('/:id')
     .get(cargoController.findOneCargo)
-    .patch(cargoController.updateCargo)
     .delete(cargoController.deleteCargo)
 
 module.exports = router;

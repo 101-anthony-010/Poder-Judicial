@@ -9,11 +9,11 @@ router
     .route('/')
     .post(dependenciaController.createDependencia)
     .get(dependenciaController.findAllDependencias)
+    .patch(dependenciaController.updateDependencia)
 
 router
     .route('/:id')
     .get(dependenciaController.findOneDependencia)
-    .patch(dependenciaController.updateDependencia)
     .delete(dependenciaController.deleteDependencia)
 
 

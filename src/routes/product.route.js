@@ -12,12 +12,12 @@ router
     .route('/')
     .post(productController.createProduct)
     .get(productController.findAllProduct)
+    .patch(productController.updateProduct)
     
 router
     .route('/:id')
     .get(productController.findOneProduct)
     .delete(productController.deletedProduct)
-    .patch(productController.updateProduct)
 
 router
     .route('/used/:id')

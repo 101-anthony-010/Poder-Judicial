@@ -41,7 +41,11 @@ exports.findOneDependencia = catchAsync(async (req, res, next) => {
 exports.deleteDependencia = catchAsync(async (req, res, next) => {
   const { id } = req.params
 
-  const dependencia = await Dependencia.destroy({id})
+  const dependencia = await Dependencia.destroy({
+    where: {
+      id
+    }
+  })
 
   res.status(200).json({
     status: "Success",
@@ -50,10 +54,14 @@ exports.deleteDependencia = catchAsync(async (req, res, next) => {
 })
 
 exports.updateDependencia = catchAsync(async (req, res, next) => {
-  const { id } = req.params
-  const { name } = req.body;
+  // const { id } = req.params
+  const { id, name } = req.body;
 
-  const dependencia = await Dependencia.findOne({id})
+  const dependencia = await Dependencia.findOne({
+    where: {
+      id
+    }
+  })
 
   const newDependencia = await dependencia.update({
     name

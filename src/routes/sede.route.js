@@ -9,11 +9,11 @@ router
     .route('/')
     .post(sedeController.createSede)
     .get(sedeController.findAllSedes)
+    .patch(sedeController.updateSede)
 
 router
     .route('/:id')
     .get(sedeController.findOneSedes)
-    .patch(sedeController.updateSede)
     .delete(sedeController.deleteSede)
 
 module.exports = router;

@@ -11,11 +11,11 @@ router
     .route('/')
     .post(modelProductController.createModelProduct)
     .get(modelProductController.findAllModelProduct)
-
+    .patch(modelProductController.updateModelProduct)
+    
 router
     .route('/:id')
     .get(modelProductController.findOneModelProduct)
-    .patch(modelProductController.updateModelProduct)
     .delete(modelProductController.deleteModelProduct)
 
 module.exports = router;

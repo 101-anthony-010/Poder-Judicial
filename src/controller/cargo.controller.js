@@ -42,7 +42,11 @@ exports.findOneCargo = catchAsync(async (req, res, next) => {
 exports.deleteCargo = catchAsync(async (req, res, next) => {
   const { id } = req.params
 
-  const cargo = await Cargo.destroy({id})
+  const cargo = await Cargo.destroy({
+    where: {
+      id
+    }
+  })
 
   res.status(200).json({
     status: "Success",
@@ -51,10 +55,14 @@ exports.deleteCargo = catchAsync(async (req, res, next) => {
 })
 
 exports.updateCargo = catchAsync(async (req, res, next) => {
-  const { id } = req.params
-  const { name } = req.body;
+  // const { id } = req.params
+  const { id, name } = req.body;
 
-  const cargo = await Cargo.findOne({id})
+  const cargo = await Cargo.findOne({
+    where: {
+      id
+    }
+  })
 
   const newCargo = await cargo.update({
     name

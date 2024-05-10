@@ -2,10 +2,11 @@ const Sede = require('./../model/sede.model')
 const catchAsync = require("../utils/catchAsync");
 
 exports.createSede = catchAsync(async (req, res, next) => {
-  const { name } = req.body;
+  const { name, address } = req.body;
 
   const sede = await Sede.create({
-    name
+    name,
+    address
   })
 
   res.status(200).json({
@@ -41,7 +42,11 @@ exports.findOneSedes = catchAsync(async (req, res, next) => {
 exports.deleteSede = catchAsync(async (req, res, next) => {
   const { id } = req.params
 
-  const sede = await Sede.destroy({id})
+  const sede = await Sede.destroy({
+    where: {
+      id
+    }
+  })
 
   res.status(200).json({
     status: "Success",
@@ -50,13 +55,18 @@ exports.deleteSede = catchAsync(async (req, res, next) => {
 })
 
 exports.updateSede = catchAsync(async (req, res, next) => {
-  const { id } = req.params
-  const { name } = req.body;
+  // const { id } = req.params
+  const { id, name, address } = req.body;
 
-  const sede = await Sede.findOne({id})
+  const sede = await Sede.findOne({
+    where: {
+      id
+    }
+  })
 
   const newSede = await sede.update({
-    name
+    name,
+    address
   })
 
   res.status(200).json({

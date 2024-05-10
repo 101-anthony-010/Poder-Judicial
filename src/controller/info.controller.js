@@ -59,8 +59,8 @@ exports.findOneInfo = catchAsync(async (req, res, next) => {
 });
 
 exports.updateInfo = catchAsync(async (req, res, next) => {
-  const { id } = req.params;
-  const { ip, marcaPrinter, userId, modelPrinter, codeInventory, modelCPU, serieCPU, procesador, memoryRAM, diskCapacity, diskTechnology, graphicTarget, cdrom, marcaMonitor, modeloMonitor, serieMonitor, teclado, contometro, mac, count, countFirware } = req.body
+  // const { id } = req.params;
+  const { id, ip, marcaPrinter, userId, modelPrinter, codeInventory, modelCPU, serieCPU, procesador, memoryRAM, diskCapacity, diskTechnology, graphicTarget, cdrom, marcaMonitor, modeloMonitor, serieMonitor, teclado, contometro, mac, count, countFirware } = req.body
   
 
   const info = await Info.findOne({
